@@ -1,97 +1,25 @@
 {
-  "name": "recompose-build",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/brodybits/react-recompose.git"
+  "name": "react-recompose",
+  "description": "A React utility belt for function components and higher-order components",
+  "keywords": [
+    "react",
+    "higher-order",
+    "components",
+    "microcomponentization",
+    "toolkit",
+    "utilities",
+    "composition"
+  ],
+  "main": "dist/Recompose.cjs.js",
+  "module": "dist/Recompose.esm.js",
+  "dependencies": {
+    "@babel/runtime": "^7.16.3",
+    "change-emitter": "^0.1.2",
+    "hoist-non-react-statics": "^2.5.5",
+    "react-lifecycles-compat": "^3.0.4",
+    "symbol-observable": "^1.2.0"
   },
-  "license": "MIT",
-  "scripts": {
-    "lint": "eslint scripts src",
-    "build:recompose": "cross-env PACKAGE_NAME=recompose rollup --config scripts/rollup.config.js",
-    "test": "jest && flow check && cross-env SNAPSHOT=match npm run build:recompose",
-    "test:watch": "cross-env BABEL_ENV=cjs jest --watch",
-    "release": "node scripts/release.js",
-    "postinstall": "node scripts/installNestedPackageDeps.js",
-    "format": "prettier --semi false --trailing-comma es5 --single-quote --write 'scripts/*.js' 'src/packages/*/*.js' 'src/packages/*/!(node_modules)/**/*.js'",
-    "precommit": "lint-staged",
-    "prepush": "yarn test"
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "testTimeout": 20000,
-    "testMatch": [
-      "<rootDir>/lib/packages/recompose/dist/__tests__/*-test.js",
-      "<rootDir>/lib/packages/recompose/__tests__/*-test.js",
-      "<rootDir>/src/**/__tests__/**/*-test.js"
-    ],
-    "coverageReporters": [
-      "text-summary",
-      "lcov"
-    ],
-    "transformIgnorePatterns": [],
-    "setupFilesAfterEnv": [
-      "<rootDir>/scripts/jest.setup.js"
-    ]
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --semi false --trailing-comma es5 --single-quote --write",
-      "eslint --fix",
-      "git add"
-    ]
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/plugin-proposal-class-properties": "^7.16.0",
-    "@babel/plugin-transform-runtime": "^7.16.4",
-    "@babel/preset-env": "^7.16.4",
-    "@babel/preset-react": "^7.16.0",
-    "babel-eslint": "^9.0.0",
-    "baconjs": "^1.0.1",
-    "chalk": "^1.1.1",
-    "change-case": "^2.3.1",
-    "codecov": "^1.0.1",
-    "create-react-class": "^15.7.0",
-    "cross-env": "^4.0.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "npm:@wojtekmaj/enzyme-adapter-react-17",
-    "eslint": "~6.1.0",
-    "eslint-config-airbnb": "^17.1.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "^2.7.0",
-    "eslint-plugin-react": "^7.27.1",
-    "flow-bin": "^0.166.1",
-    "flyd": "^0.2.8",
-    "husky": "^0.13.3",
-    "jest": "^27.4.3",
-    "kefir": "^3.8.8",
-    "lint-staged": "^3.4.0",
-    "most": "^1.9.0",
-    "prettier": "~1.5.3",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "readline-sync": "^1.4.10",
-    "rollup": "^0.65.2",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^9.3.4",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-size-snapshot": "npm:@brodybits/rollup-plugin-size-snapshot@0.7.1-rc1",
-    "rollup-plugin-uglify": "^4.0.0",
-    "rx": "^4.1.0",
-    "rxjs": "^5.5.12",
-    "shelljs": "^0.6.0",
-    "sinon": "^1.17.1",
-    "xstream": "^5.0.5"
-  },
-  "devEngines": {
-    "node": "5.x",
-    "npm": "3.x"
-  },
-  "dependencies": {}
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0"
+  }
 }
